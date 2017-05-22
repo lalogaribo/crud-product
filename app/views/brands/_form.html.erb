@@ -1,0 +1,20 @@
+<% if @brand.errors.any? %>
+<h4 class ="text-center">Oops something went wrong: </h4>
+<ul class="text-center">
+  <% @brand.errors.full_messages.each do |msg| %>
+ <li class ="text-center"><%= msg %></li> 
+  <% end %>
+  </ul>
+<% end %>
+
+<%= simple_form_for @brand, html: {class: 'form-signin'} do |f| %>
+
+  <%= f.input :name, required: true, label: false, placeholder: "Name", autofocus:true %>
+  <%= f.submit :submit, class: "btn btn-primary btn-block" %>
+  
+  
+<% end %>
+  
+<p>
+  <%= link_to 'All Brands', brands_path %>
+</p>

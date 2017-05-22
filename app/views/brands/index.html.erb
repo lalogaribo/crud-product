@@ -1,0 +1,30 @@
+<h1>Brands list</h1>
+
+
+<div class ="row">
+  <div class ="col-md-12">
+    <h3>Brands
+    <%= link_to 'New Brand', new_brand_path, class: 'btn btn-primary btn-sm' %>
+    </h3>
+    <div class="bs-example" data-example-id="condensed-table">
+     <table class="table table-condensed"> 
+     <thead> 
+       <tr> 
+       <th>ID</th> 
+       <th>Name</th> 
+       <th></th> 
+       </tr> 
+     </thead> 
+     <tbody> 
+     <% @brands.each do |brand| %>
+       <tr> 
+       <td><%= brand.id %></td> 
+       <td><%= link_to brand.name, brand_path(brand) %></td> 
+       <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
+       <td><%= link_to 'Delete', brand_path(brand), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right' %> </td>
+       </tr>   
+       <% end %>
+     </tbody> 
+     </table> 
+     </div>
+ </div>
