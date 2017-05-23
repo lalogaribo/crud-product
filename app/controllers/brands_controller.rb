@@ -56,6 +56,6 @@ end
   end
   
   def set_brand
-    params.require(:brand).permit(:name)
+    params.require(:brand).permit(:name, :brand_id)
   end
 end

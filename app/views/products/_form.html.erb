@@ -1,0 +1,24 @@
+<% if @product.errors.any? %>
+<h4 class ="text-center">Oops something went wrong: </h4>
+<ul class="text-center">
+  <% @product.errors.full_messages.each do |msg| %>
+ <li class ="text-center"><%= msg %></li> 
+  <% end %>
+  </ul>
+<% end %>
+
+<%= simple_form_for @product, html: {class: 'form-signin'} do |f| %>
+
+  <%= f.input :name, required: true, label: false, placeholder: "Name", autofocus:true %>
+  <%= f.input :description, required: true, label: false, placeholder: "Description" %>
+  <%= f.input :price, required: true, label: false, placeholder: "Price" %>
+  <%= f.collection_select(:brand_id, @brands, :id, :name, prompt: true ) %> 
+  <!--%= select("brand", "brand_id", Brand.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %> -->
+  <%= f.submit :submit, class: "btn btn-primary btn-block" %>
+  
+  
+<% end %>
+  
+<p>
+  <%= link_to 'All Products', products_path %>
+</p>

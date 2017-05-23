@@ -1,0 +1,11 @@
+<div class ="col-md-3">
+    <div class ="img-thumbnail">
+      <%= image_tag 'rails.jpg', class: 'img-responsive' %>
+      
+    </div>
+    <div class ="caption">
+      <p><strong><%= link_to product.name, product_path(product) %> </strong></p>
+      <p>$ <%= product.price %></p>
+
+    </div>
+  </div>
